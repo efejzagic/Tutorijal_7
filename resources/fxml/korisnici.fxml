@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.tutorijal_7.KorisniciController">
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Label text="Ime:" GridPane.columnIndex="1" />
+      <Label text="Prezime:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Label text="E-mail:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Label text="Korisnicko ime:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Label text="Lozinka:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <TextField GridPane.columnIndex="2" />
+      <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <PasswordField GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      <ListView prefHeight="0.0" prefWidth="200.0" GridPane.rowSpan="5" />
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+        <buttons>
+          <Button defaultButton="true" mnemonicParsing="false" text="Dodaj" />
+            <Button cancelButton="true" mnemonicParsing="false" text="Kraj" />
+        </buttons>
+      </ButtonBar>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</GridPane>
