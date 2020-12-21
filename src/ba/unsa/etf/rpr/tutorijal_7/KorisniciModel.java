@@ -16,11 +16,9 @@ public class KorisniciModel {
         trenutniKorisnik.set(null);
     }
 
-
     public ObservableList<Korisnik> getKorisnici() {
         return korisnici;
     }
-
 
     public void addKorisnik (Korisnik korisnik) {
         korisnici.add(korisnik);

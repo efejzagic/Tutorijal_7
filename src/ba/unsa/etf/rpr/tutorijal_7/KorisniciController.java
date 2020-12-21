@@ -21,6 +21,8 @@ public class KorisniciController {
 
     private KorisniciModel model = new KorisniciModel();
 
+
+
     public KorisniciController () {
         model.napuni();
     }
@@ -34,20 +36,34 @@ public class KorisniciController {
         fldLozinka.getStyleClass().add("neispravno");
 
 
-
         listKorisnici.getSelectionModel().selectedItemProperty().addListener(
                 (obs,oldKorisnik, newKorisnik) -> {
                     model.setTrenutniKorisnik(newKorisnik);
+                    if(oldKorisnik!=null) {
+                        //unbind
+                        fldIme.textProperty().unbindBidirectional(oldKorisnik.imeProperty());
+                        fldPrezime.textProperty().unbindBidirectional(oldKorisnik.prezimeProperty());
+                        fldUsername.textProperty().unbindBidirectional(oldKorisnik.korisnickoImeProperty());
+                        fldMail.textProperty().unbindBidirectional(oldKorisnik.mailProperty());
+                        fldLozinka.textProperty().unbindBidirectional(oldKorisnik.lozinkaProperty());
+                    }
+                    if(newKorisnik==null) {
+                        fldIme.setText("");
+                        fldPrezime.setText("");
+                        fldMail.setText("");
+                        fldUsername.setText("");
+                        fldLozinka.setText("");
+                    }
+                    else {
+                        fldIme.textProperty().bindBidirectional(newKorisnik.imeProperty());
+                        fldPrezime.textProperty().bindBidirectional(newKorisnik.prezimeProperty());
+                        fldUsername.textProperty().bindBidirectional(newKorisnik.korisnickoImeProperty());
+                        fldLozinka.textProperty().bindBidirectional(newKorisnik.lozinkaProperty());
+                        fldMail.textProperty().bindBidirectional(newKorisnik.mailProperty());
+                    }
+
                     listKorisnici.refresh();
                 });
-
-        if(model.getTrenutniKorisnik()!=null) {
-            fldIme.textProperty().bindBidirectional(model.getTrenutniKorisnik().imeProperty());
-            fldPrezime.textProperty().bindBidirectional(model.getTrenutniKorisnik().prezimeProperty());
-            fldUsername.textProperty().bindBidirectional(model.getTrenutniKorisnik().korisnickoImeProperty());
-            fldLozinka.textProperty().bindBidirectional(model.getTrenutniKorisnik().lozinkaProperty());
-            fldMail.textProperty().bindBidirectional(model.getTrenutniKorisnik().mailProperty());
-        }
 
         listKorisnici.setItems(model.getKorisnici());
 
@@ -84,6 +100,7 @@ public class KorisniciController {
         fldMail.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+
                 if(fldMail.getText().trim().isEmpty()) {
                     fldMail.getStyleClass().removeAll("ispravno");
                     fldMail.getStyleClass().add("neispravno");
@@ -122,6 +139,8 @@ public class KorisniciController {
         });
     }
 
+
+
     public boolean provjera () {
         if(fldIme.getText().isBlank() || fldPrezime.getText().isBlank() || fldMail.getText().isBlank() || fldUsername.getText().isBlank() ||
                 fldLozinka.getText().isBlank() || fldLozinka.getText().length()<6) return false;
@@ -129,12 +148,9 @@ public class KorisniciController {
     }
 
     public void izbrisi() {
-        fldIme.setText("");
-        fldPrezime.setText("");
-        fldUsername.setText("");
-        fldMail.setText("");
-        fldLozinka.setText("");
+        model.setTrenutniKorisnik(null);
     }
+
 
 
     public void actionDodaj(ActionEvent actionEvent) {
