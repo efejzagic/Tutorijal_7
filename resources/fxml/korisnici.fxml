@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.tutorijal_7.KorisniciController">
+   <stylesheets>
+      <URL value="@/css/korisnici.css" />
+   </stylesheets>
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
@@ -24,16 +28,16 @@
       <Label text="E-mail:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <Label text="Korisnicko ime:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <Label text="Lozinka:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <TextField GridPane.columnIndex="2" />
-      <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
-      <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" />
-      <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
-      <PasswordField GridPane.columnIndex="2" GridPane.rowIndex="4" />
-      <ListView prefHeight="0.0" prefWidth="200.0" GridPane.rowSpan="5" />
+      <TextField fx:id="fldIme" GridPane.columnIndex="2" />
+      <TextField fx:id="fldPrezime" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <TextField fx:id="fldMail" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <TextField fx:id="fldUsername" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <PasswordField fx:id="fldLozinka" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      <ListView fx:id="listKorisnici" prefHeight="0.0" prefWidth="200.0" GridPane.rowSpan="5" />
       <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
         <buttons>
-          <Button defaultButton="true" mnemonicParsing="false" text="Dodaj" />
-            <Button cancelButton="true" mnemonicParsing="false" text="Kraj" />
+          <Button defaultButton="true" mnemonicParsing="false" onAction="#actionDodaj" text="Dodaj" />
+            <Button onAction="#actionKraj" cancelButton="true" mnemonicParsing="false" text="Kraj" />
         </buttons>
       </ButtonBar>
    </children>

@@ -5,6 +5,15 @@ import javafx.beans.property.SimpleStringProperty;
 public class Korisnik {
     private SimpleStringProperty ime, prezime, mail, korisnickoIme, lozinka;
 
+    public Korisnik() {
+        this.ime = new SimpleStringProperty("");
+        this.prezime = new SimpleStringProperty("");
+        this.mail =  new SimpleStringProperty("");
+        this.korisnickoIme = new SimpleStringProperty("");
+        this.lozinka = new SimpleStringProperty("");
+
+    }
+
     public Korisnik(String ime, String prezime,
                     String mail, String korisnickoIme, String lozinka) {
         this.ime = new SimpleStringProperty(ime);
@@ -72,5 +81,11 @@ public class Korisnik {
 
     public void setLozinka(String lozinka) {
         this.lozinka.set(lozinka);
+    }
+
+
+    @Override
+    public String toString () {
+        return prezime.get() + " " + ime.get();
     }
 }
