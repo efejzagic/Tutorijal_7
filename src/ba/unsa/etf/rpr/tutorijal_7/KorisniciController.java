@@ -4,10 +4,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ListView;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class KorisniciController {
 
@@ -17,6 +14,7 @@ public class KorisniciController {
     public TextField fldUsername;
     public PasswordField fldLozinka;
     public ListView<Korisnik> listKorisnici;
+    public Button btnDodaj;
 
 
     private KorisniciModel model = new KorisniciModel();
@@ -139,8 +137,6 @@ public class KorisniciController {
         });
     }
 
-
-
     public boolean provjera () {
         if(fldIme.getText().isBlank() || fldPrezime.getText().isBlank() || fldMail.getText().isBlank() || fldUsername.getText().isBlank() ||
                 fldLozinka.getText().isBlank() || fldLozinka.getText().length()<6) return false;
@@ -150,8 +146,6 @@ public class KorisniciController {
     public void izbrisi() {
         model.setTrenutniKorisnik(null);
     }
-
-
 
     public void actionDodaj(ActionEvent actionEvent) {
         if(provjera()) {
@@ -174,4 +168,5 @@ public class KorisniciController {
     public void actionKraj(ActionEvent actionEvent) {
         System.exit(0);
     }
+
 }

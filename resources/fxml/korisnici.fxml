@@ -33,11 +33,11 @@
       <TextField fx:id="fldMail" GridPane.columnIndex="2" GridPane.rowIndex="2" />
       <TextField fx:id="fldUsername" GridPane.columnIndex="2" GridPane.rowIndex="3" />
       <PasswordField fx:id="fldLozinka" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-      <ListView fx:id="listKorisnici" prefHeight="0.0" prefWidth="200.0" GridPane.rowSpan="5" />
+      <ListView fx:id="listKorisnici" prefHeight="0.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.rowSpan="5" GridPane.vgrow="ALWAYS" />
       <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
         <buttons>
-          <Button defaultButton="true" mnemonicParsing="false" onAction="#actionDodaj" text="Dodaj" />
-            <Button onAction="#actionKraj" cancelButton="true" mnemonicParsing="false" text="Kraj" />
+          <Button fx:id="btnDodaj" defaultButton="true" mnemonicParsing="false" onAction="#actionDodaj" text="Dodaj" />
+            <Button cancelButton="true" mnemonicParsing="false" onAction="#actionKraj" text="Kraj" />
         </buttons>
       </ButtonBar>
    </children>
